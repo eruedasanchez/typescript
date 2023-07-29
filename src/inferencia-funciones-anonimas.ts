@@ -61,26 +61,26 @@
 
 /*********** OPCIONAL PROPERTIES ***********/
 
-type Hero = {
-    id ?: number
-    name: string
-    age: number
-    isActive ?: boolean // agregamos el simbolo ? para indicar que la propiedad isActive es opcional. De lo contrario, tenemos que agregarla a todas las declaraciones de tipo Hero
-}
+// type Hero = {
+//     id ?: number
+//     name: string
+//     age: number
+//     isActive ?: boolean // agregamos el simbolo ? para indicar que la propiedad isActive es opcional. De lo contrario, tenemos que agregarla a todas las declaraciones de tipo Hero
+// }
 
-let hero: Hero = {
-    name: 'Thor',
-    age: 1500
-};
+// let hero: Hero = {
+//     name: 'Thor',
+//     age: 1500
+// };
 
-function createHero(hero: Hero): Hero{
-    const {name, age} = hero;
-    return {name, age, isActive: true};
-}
+// function createHero(hero: Hero): Hero{
+//     const {name, age} = hero;
+//     return {name, age, isActive: true};
+// }
 
-const thor = createHero({name: 'Thor', age: 1500});
-console.log(thor.isActive) // imprime true por consola
-thor.id?.toString
+// const thor = createHero({name: 'Thor', age: 1500});
+// console.log(thor.isActive) // imprime true por consola
+// thor.id?.toString
 
 // Observamos que cuando escribimos thor.id.toString() se convierte en thor.id?.toString porque como id es 
 // una propiedad opcional entonces TS primero va a chequear si existe el id. Si existe, va a aplicar thor.id.toString()
