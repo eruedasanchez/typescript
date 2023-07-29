@@ -42,11 +42,3 @@ function retornarEdadExplicito({ nombre, edad }) {
     return edad;
 }
 retornarEdadExplicito({ nombre: 'Romeo', edad: 56 });
-/*********** Tipado de arrow functions ***********/
-const sayHiFromFunction = (fn) => {
-    fn('Miguel');
-};
-const sayHi = (name) => {
-    console.log(`Hola ${name}`);
-};
-sayHiFromFunction(sayHi);
