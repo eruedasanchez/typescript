@@ -26,34 +26,34 @@
 
 // Continuamos creando el Hero de la siguiente manera:
 
-type HeroId = `${string}-${string}-${string}-${string}-${string}`; // formato de crypto.randomUUID()
+// type HeroId = `${string}-${string}-${string}-${string}-${string}`; // formato de crypto.randomUUID()
 
-type Hero = {
-    readonly id?: HeroId // utilizo el tipo HeroId para crear el tipo Hero
-    name: string
-    age: number
-    isActive ?: boolean // agregamos el simbolo ? para indicar que la propiedad isActive es opcional. De lo contrario, tenemos que agregarla a todas las declaraciones de tipo Hero
-}
+// type Hero = {
+//     readonly id?: HeroId // utilizo el tipo HeroId para crear el tipo Hero
+//     name: string
+//     age: number
+//     isActive ?: boolean // agregamos el simbolo ? para indicar que la propiedad isActive es opcional. De lo contrario, tenemos que agregarla a todas las declaraciones de tipo Hero
+// }
 
-let hero: Hero = {
-    name: 'Thor',
-    age: 1500
-};
+// let hero: Hero = {
+//     name: 'Thor',
+//     age: 1500
+// };
 
-function createHero(hero: Hero): Hero{
-    const {name, age} = hero;
-    return {id: crypto.randomUUID(), name, age, isActive: true};
-}
+// function createHero(hero: Hero): Hero{
+//     const {name, age} = hero;
+//     return {id: crypto.randomUUID(), name, age, isActive: true};
+// }
 
-const thor = createHero({name: 'Thor', age: 1500});
+// const thor = createHero({name: 'Thor', age: 1500});
 
 // Template union types
 
-type HexadecimalColor = `#${string}`;
+// type HexadecimalColor = `#${string}`;
 
-// const color:HexadecimalColor = '0033ff';
-const colorDos:HexadecimalColor = '#0033ff';
-const colorTres:HexadecimalColor = '#sdhfhsdfkgsdjf434638';
+// // const color:HexadecimalColor = '0033ff';
+// const colorDos:HexadecimalColor = '#0033ff';
+// const colorTres:HexadecimalColor = '#sdhfhsdfkgsdjf434638';
 
 // Observamos que color no es del tipo HexadecimalColor pero tanto colorDos como colorTres son de tipo HexadecimalColor 
 
