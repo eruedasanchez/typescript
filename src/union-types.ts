@@ -37,33 +37,33 @@
 
 /**************** INTERSECTION TYPES ****************/ 
 
-type HeroId = `${string}-${string}-${string}-${string}-${string}`; // formato de crypto.randomUUID()
-type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal';
+// type HeroId = `${string}-${string}-${string}-${string}-${string}`; // formato de crypto.randomUUID()
+// type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal';
 
-// Redefinimos el typo Hero de la siguiente manera 
+// // Redefinimos el typo Hero de la siguiente manera 
 
-type HeroBasicInfo = {
-    name:  string
-    age: number
-}
+// type HeroBasicInfo = {
+//     name:  string
+//     age: number
+// }
 
-type HeroProperties = {
-    readonly id?: HeroId 
-    isActive ?: boolean 
-    powerScale ?: HeroPowerScale
-}
+// type HeroProperties = {
+//     readonly id?: HeroId 
+//     isActive ?: boolean 
+//     powerScale ?: HeroPowerScale
+// }
 
-type Hero = HeroBasicInfo & HeroProperties;
+// type Hero = HeroBasicInfo & HeroProperties;
 
-let hero: Hero = {
-    name: 'Thor',
-    age: 1500
-};
+// let hero: Hero = {
+//     name: 'Thor',
+//     age: 1500
+// };
 
-function createHero(basicInfo: HeroBasicInfo): Hero{
-    const {name, age} = basicInfo;
-    return {id: crypto.randomUUID(), name, age, isActive: true};
-}
+// function createHero(basicInfo: HeroBasicInfo): Hero{
+//     const {name, age} = basicInfo;
+//     return {id: crypto.randomUUID(), name, age, isActive: true};
+// }
 
-const thor = createHero({name: 'Thor', age: 1500});
-thor.powerScale = 'planetary';
+// const thor = createHero({name: 'Thor', age: 1500});
+// thor.powerScale = 'planetary';
