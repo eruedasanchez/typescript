@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsNode": "cd src && ts-node index.ts",
+    "calculadora": "cd src && ts-node calculadora.ts",
     "start": "nodemon",
     "transpilation": "tsc",
     "build:prod": "rimraf ./build && tsc",
