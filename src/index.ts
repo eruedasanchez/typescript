@@ -289,6 +289,40 @@ console.log('valor generado por el worker:', generatorSaga.next().value);  // 2
 console.log('valor generado por el worker:', generatorSaga.next().value);  // 3
 console.log('valor generado por el watcher:', generatorSaga.next().value); // 4
 
+// Declaracion de tuplas
+
+let  db: [nombre:string, edad:number, pais:string, premium:boolean] = ["Dani", 26, "Argentina", false];
+
+console.log(db[0]);
+
+// Declaracion de objetos
+
+let persona : {
+    nombre: string,
+    edad: number,
+    pais: string,
+    fecha_nac: Date,
+    laboral: {
+        empresa: string,
+        sector: string
+    }
+} = {
+    nombre: 'Pepe Perez',
+    edad: 30,
+    pais: 'Colombia',
+    fecha_nac: new Date(1990, 5, 14),
+    laboral: {
+        empresa: 'Amazon',
+        sector: 'Sistemas'
+    }
+}
+
+console.log(persona.edad);
+console.log(persona.fecha_nac);
+console.log(persona.nombre);
+console.log(persona.pais);
+console.log(persona.laboral);
+
 
 
 
