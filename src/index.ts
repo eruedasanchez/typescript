@@ -1,3 +1,5 @@
+import { FileReader } from "undici-types";
+
 console.log('Hello TS');
 console.log('Bye TS');
 
@@ -166,6 +168,127 @@ let nuevoEstado = {
     ...estadoApp,
     session: 4
 }; // { usuario: 'Admin', session: 4, jwt: 'Bearer1283612783' }
+
+
+/**** FUNCIONES ****/
+
+/**
+ * Funcion que muestra un saludo por consola
+ */
+function saludar() {
+    let nombre = "Ezequiel";
+    console.log(`Hola, ${nombre}`)
+}
+saludar();
+
+/**
+ * Funcion que muestra un saludo por consola a una persona
+ * @param nombre Nombre de la persona a saludar
+ */
+function saludarNombre(nombre:string) {
+    console.log(`Buenos dias, ${nombre}`);
+    
+}
+saludarNombre('Juan');
+
+/**
+ * Funcion que retorna una despedida a una persona
+ * @param nombre Nombre de la persona a despedir. Por defecto, es Jose
+ */
+function despedirPersona(nombre:string = "Jose") {
+    console.log(`Adios, ${nombre}`)
+    
+}
+
+despedirPersona(); // En este caso, al establecer nombre = "Jose", el parametro nombre es opcional. Output: Adios, Jose
+despedirPersona('Julian'); // Adios, Julian
+
+// funciones con retorno
+
+/**
+ * 
+ * @param nombre Nombre de la persona
+ * @param apellidos Apellidos de la persona
+ * @returns Nombre completo de la persona 
+ */
+function ejemploReturn(nombre:string, apellidos:string) : string {
+    return `${nombre} ${apellidos}`;
+}
+
+const nombreCompleto = ejemploReturn('Roberto', 'Sanchez');
+console.log('nombreCompleto:', nombreCompleto);
+
+// funcion multiparametro con spread operator
+
+/**
+ * 
+ * @param nombres es una lista de nombres de tipo string
+ */
+function ejemploMultiParams(...nombres:string[]) {
+    nombres.forEach((nombre) => {
+        console.log(nombre);
+    })
+}
+
+ejemploMultiParams('Juan', 'Alberto', 'Gustavo'); // observar que no se pasa como arreglo, se listan los nombres unicamente
+
+// Ahora, si queremos pasar el argumento como lista, hacemos lo siguiente:
+const lista = ['Ricardo', 'Noelia'];
+ejemploMultiParams(...lista); // pasamos el argumento utilizando el spread operator
+
+// ASYNC FUNCTIONS
+
+const ejemploAsync = async () : Promise<void> => {
+    await console.log("Tarea a completar antes de seguir con la secuencia de instrucciones")
+}
+
+
+// FUNCION GENERADORA (Generators)
+
+function* ejemploGenerator() {
+    // yield --> para emitir valores
+    let index = 0;
+
+    while(index < 5){
+        // Emitimos un valor autoincremental
+        yield index++;
+    }
+}
+
+// Guardamos la funcion generadora en una variable
+let generadora = ejemploGenerator();
+
+// Accedemos a los valores emitidos
+
+console.log(generadora.next().value); // 0 
+console.log(generadora.next().value); // 1 
+console.log(generadora.next().value); // 2 
+console.log(generadora.next().value); // 3 
+console.log(generadora.next().value); // 4 
+// console.log(generadora.next().value); // undefined (porque 5 < 5 Abs!) 
+
+// WORKER
+
+function* watcher(valor:number) {
+    yield valor; // emitimos el valor inicial 0
+    yield* worker(valor); // llamamos a las emisiones de worker para que emita otros valores
+    yield valor + 4; // emitimos el valor final + 4
+}
+
+function* worker(valor:number) {
+    yield valor + 1;
+    yield valor + 2;
+    yield valor + 3;
+}
+
+let generatorSaga = watcher(0);
+
+console.log('valor generado por el watcher:', generatorSaga.next().value); // 0
+console.log('valor generado por el worker:', generatorSaga.next().value);  // 1
+console.log('valor generado por el worker:', generatorSaga.next().value);  // 2
+console.log('valor generado por el worker:', generatorSaga.next().value);  // 3
+console.log('valor generado por el watcher:', generatorSaga.next().value); // 4
+
 
 
 
