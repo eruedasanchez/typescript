@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts .js",
     "ignore": ["node_modules"],
-    "exec": "ts-node ./src/literal-types.ts"
+    "exec": "ts-node ./src/union-types.ts"
 }
